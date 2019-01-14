@@ -16,7 +16,8 @@
         android:background="@color/primaryColor">
 
         <TextView
-            style="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="23sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -25,22 +26,171 @@
     </LinearLayout>
 
     <!-- This starts the scrollable area.-->
+
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/headerLayout">
 
-        <!-- This is Question One's layout.-->
         <LinearLayout
-            android:id="@+id/q1Layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                style="@style/AppTheme"
-                android:layout_width="wrap_content"
+            <!-- This is Question One's layout.-->
+            <LinearLayout
+                android:id="@+id/q1Layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="What are cat's whiskers for?" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/questionOne"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="1. How do cats get into small places?" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="A: They are flexible like a snake." />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="B: They have special organs." />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="C: Their whiskers measure openings." />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- This is Question Two's layout.-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+
+                <ImageView
+                    android:id="@+id/catExampleImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/q2image" />
+
+                <TextView
+                    android:id="@+id/questionTwo"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/catExampleImage"
+                    android:layout_margin="12dp"
+                    android:text="2. Outdoor cats typical lifespan is 3-5 years, what is the average lifespan of an indoor cat like the one above?" />
+
+                <Button
+                    android:id="@+id/q2AnswerA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/questionTwo"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/primaryLightColor"
+                    android:text="3-5 Years" />
+
+                <Button
+                    android:id="@+id/q2AnswerB"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/questionTwo"
+
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toRightOf="@id/q2AnswerA"
+                    android:background="@color/secondaryLightColor"
+                    android:padding="6dp"
+                    android:text="30 Years Or More" />
+
+                <Button
+                    android:id="@+id/q2AnswerC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/questionTwo"
+                    android:layout_margin="8dp"
+                    android:layout_toRightOf="@id/q2AnswerB"
+                    android:background="@color/primaryDarkColor"
+                    android:padding="6dp"
+                    android:text="16 Years Or More"
+                    android:textColor="@color/secondaryTextColor" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/questionThree"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="3. Which cat(s) are in a friendly mood?" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/q3imgA"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/q3img1"></ImageView>
+
+                        <ImageView
+                            android:id="@+id/q3imgb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_below="@id/q3imgA"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/q3img2"></ImageView>
+
+                        <ImageView
+                            android:id="@+id/q3imgc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_toRightOf="@id/q3imgA"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/q3img3"></ImageView>
+                    </RelativeLayout>
+                </ScrollView>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
