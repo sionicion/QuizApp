@@ -60,15 +60,17 @@
                     android:layout_height="wrap_content">
 
                     <RadioButton
+                        android:id="@+id/q1AnswerA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/q1AnswerA"
                         android:padding="8dp"
+                        android:onClick="radioButtonClicked"
                         android:text="A: They are flexible like a snake." />
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="radioButtonClicked"
                         android:padding="8dp"
                         android:id="@+id/q1AnswerB"
                         android:text="B: They have special organs." />
@@ -76,6 +78,7 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="radioButtonClicked"
                         android:padding="8dp"
                         android:id="@+id/q1AnswerC"
                         android:text="C: Their whiskers measure openings." />
@@ -214,24 +217,28 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:id="@+id/q4AnswerA"
+                    android:onClick="checkBoxClicked"
                     android:layout_height="wrap_content"
                     android:text="Special balance organs in eyes and ears" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:id="@+id/q4AnswerB"
+                    android:onClick="checkBoxClicked"
                     android:layout_height="wrap_content"
                     android:text="Very flexible backbone" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:id="@+id/q4AnswerC"
+                    android:onClick="checkBoxClicked"
                     android:layout_height="wrap_content"
                     android:text="Special gravity defying paws" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:id="@+id/q4AnswerD"
+                    android:onClick="checkBoxClicked"
                     android:layout_height="wrap_content"
                     android:text="No collarbone" />
             </LinearLayout>
@@ -278,6 +285,7 @@
             android:layout_centerInParent="true"
             android:background="@color/primaryDarkColor"
             android:text="Submit"
+            android:onClick="submitQuiz"
             android:id="@+id/submitButton"
             android:textColor="@color/secondaryTextColor" />
     </RelativeLayout>

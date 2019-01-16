@@ -7,12 +7,15 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     // This is where I declare all the XML objects, I want these properties all wired up as soon as the app starts for the sake of simplicity.
-    RadioGroup q1RadioGroup;
+    RadioButton q1AnswerA;
+    RadioButton q1AnswerB;
+    RadioButton q1AnswerC;
     Button q2AnswerA;
     Button q2AnswerB;
     Button q2AnswerC;
@@ -25,9 +28,13 @@ public class MainActivity extends AppCompatActivity {
     CheckBox q4AnswerC;
     CheckBox q4AnswerD;
     EditText q5Answer;
+    Button submitButton;
     // General variables
     int question2Answer = 0;
     int happyCatsFound = 0;
+    int score = 0;
+    boolean isQ1Answered = false;
+    boolean isQ4Answered = false;
 
 
     @Override
@@ -35,19 +42,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // This is where I initialize the variables for the XML objects.
-        q1RadioGroup = (RadioGroup) findViewById(R.id.q1RadioGroup);
-        q2AnswerA = (Button) findViewById(R.id.q2AnswerA);
-        q2AnswerB = (Button) findViewById(R.id.q2AnswerB);
-        q2AnswerC = (Button) findViewById(R.id.q2AnswerC);
-        questionThree = (TextView) findViewById(R.id.questionThree);
-        q3imgA = (ImageView) findViewById(R.id.q3imgA);
-        q3imgB = (ImageView) findViewById(R.id.q3imgB);
-        q3imgC = (ImageView) findViewById(R.id.q3imgC);
-        q4AnswerA = (CheckBox) findViewById(R.id.q4AnswerA);
-        q4AnswerB = (CheckBox) findViewById(R.id.q4AnswerB);
-        q4AnswerC = (CheckBox) findViewById(R.id.q4AnswerC);
-        q4AnswerD = (CheckBox) findViewById(R.id.q4AnswerD);
-        q5Answer = (EditText) findViewById(R.id.q5Answer);
+        q1AnswerA = findViewById(R.id.q1AnswerA);
+        q1AnswerB = findViewById(R.id.q1AnswerB);
+        q1AnswerC = findViewById(R.id.q1AnswerC);
+        q2AnswerA = findViewById(R.id.q2AnswerA);
+        q2AnswerB = findViewById(R.id.q2AnswerB);
+        q2AnswerC = findViewById(R.id.q2AnswerC);
+        questionThree = findViewById(R.id.questionThree);
+        q3imgA = findViewById(R.id.q3imgA);
+        q3imgB = findViewById(R.id.q3imgB);
+        q3imgC = findViewById(R.id.q3imgC);
+        q4AnswerA = findViewById(R.id.q4AnswerA);
+        q4AnswerB = findViewById(R.id.q4AnswerB);
+        q4AnswerC = findViewById(R.id.q4AnswerC);
+        q4AnswerD = findViewById(R.id.q4AnswerD);
+        q5Answer = findViewById(R.id.q5Answer);
+        submitButton = findViewById(R.id.submitButton);
+    }
+// The code below makes some changes to the UI to make sure the user knows they selected an answer and to let the app keep track if every question was answered. It also simplifies the grading system by collecting the answers ahead of time.
+
+    public void radioButtonClicked(View Views) {
+        isQ1Answered = true;
+    }
+
+    public void checkBoxClicked(View Views) {
+        isQ4Answered = true;
     }
 
     public void q2AnswerAClicked(View Views) {
@@ -94,4 +113,66 @@ public class MainActivity extends AppCompatActivity {
             questionThree.setText("Great! Proceed to Question 4!");
         }
     }
+    // This starts the grading logic, the app runs through a check to see everything is answered, then it begins the grading process. If grading is successful, it deactivates all the UI elements to prevent unexpected input.
+
+    public void submitQuiz(View Views) {
+        String q5String = q5Answer.getText().toString();
+        if (isQ1Answered == true) {
+            if (question2Answer > 0) {
+                if (happyCatsFound > 0) {
+                    if (isQ4Answered == true) {
+                        if (q5String.isEmpty() == false) {
+                            if (q1AnswerC.isChecked() == true) {
+                                score++;
+                            }
+                            if (question2Answer == 3) {
+                                score++;
+                            }
+                            if (happyCatsFound == 3) {
+                                score++;
+                            }
+                            if (q4AnswerA.isChecked() == true) {
+                                if (q4AnswerB.isChecked() == true) {
+                                    if (q4AnswerC.isChecked() == false) {
+                                        if (q4AnswerD.isChecked() == true) {
+                                            score++;
+                                        }
+                                    }
+                                }
+                            }
+                            if (q5String.contains("meow")) {
+                                score++;
+                            }
+                            if (q5String.contains("Meow")) {
+                                score++;
+                            }
+                            Toast.makeText(this, "Meowww, you got " + score + " out of 5 right!", Toast.LENGTH_LONG).show();
+                            q1AnswerA.setEnabled(false);
+                            q1AnswerB.setEnabled(false);
+                            q1AnswerC.setEnabled(false);
+                            q4AnswerA.setEnabled(false);
+                            q4AnswerB.setEnabled(false);
+                            q4AnswerC.setEnabled(false);
+                            q4AnswerD.setEnabled(false);
+                            q5Answer.setEnabled(false);
+                            submitButton.setEnabled(false);
+                        } else {
+                            Toast.makeText(this, "You missed a question!", Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        Toast.makeText(this, "You missed a question!", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(this, "You missed a question!", Toast.LENGTH_LONG).show();
+                }
+            } else {
+                Toast.makeText(this, "You missed a question!", Toast.LENGTH_LONG).show();
+            }
+        } else {
+            Toast.makeText(this, "You missed a question!", Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
 }
