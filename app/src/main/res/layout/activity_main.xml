@@ -117,6 +117,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="8dp"
                     android:background="@color/primaryLightColor"
+                    android:onClick="q2AnswerAClicked"
                     android:text="3-5 Years" />
 
                 <Button
@@ -125,7 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/questionTwo"
-
+                    android:onClick="q2AnswerBClicked"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
@@ -140,14 +141,14 @@
                 <Button
                     android:id="@+id/q2AnswerC"
                     android:layout_width="wrap_content"
+                    android:onClick="q2AnswerCClicked"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/questionTwo"
                     android:layout_margin="8dp"
                     android:layout_toRightOf="@id/q2AnswerB"
                     android:background="@color/primaryDarkColor"
                     android:padding="6dp"
-                    android:text="16 Years Or More"
-                    android:textColor="@color/secondaryTextColor" />
+                    android:text="16 Years Or More" />
 
             </RelativeLayout>
 
@@ -174,12 +175,14 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
+                        android:onClick="q3imgAclicked"
                         android:src="@drawable/q3img1"></ImageView>
 
                     <ImageView
                         android:id="@+id/q3imgB"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
+                        android:onClick="q3imgBclicked"
                         android:layout_toRightOf="@id/q3imgA"
                         android:scaleType="centerCrop"
                         android:src="@drawable/q3img3"></ImageView>
@@ -187,6 +190,7 @@
                     <ImageView
                         android:id="@+id/q3imgC"
                         android:layout_width="wrap_content"
+                        android:onClick="q3imgCclicked"
                         android:layout_height="100dp"
                         android:layout_toRightOf="@id/q3imgB"
                         android:scaleType="centerCrop"
