@@ -55,12 +55,14 @@
                     android:text="1. How do cats get into small places?" />
 
                 <RadioGroup
+                    android:id="@+id/q1RadioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/q1AnswerA"
                         android:padding="8dp"
                         android:text="A: They are flexible like a snake." />
 
@@ -68,12 +70,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
+                        android:id="@+id/q1AnswerB"
                         android:text="B: They have special organs." />
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
+                        android:id="@+id/q1AnswerC"
                         android:text="C: Their whiskers measure openings." />
                 </RadioGroup>
             </LinearLayout>
@@ -173,7 +177,7 @@
                         android:src="@drawable/q3img1"></ImageView>
 
                     <ImageView
-                        android:id="@+id/q3imgC"
+                        android:id="@+id/q3imgB"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_toRightOf="@id/q3imgA"
@@ -181,10 +185,10 @@
                         android:src="@drawable/q3img3"></ImageView>
 
                     <ImageView
-                        android:id="@+id/q3imgB"
+                        android:id="@+id/q3imgC"
                         android:layout_width="wrap_content"
                         android:layout_height="100dp"
-                        android:layout_toRightOf="@id/q3imgC"
+                        android:layout_toRightOf="@id/q3imgB"
                         android:scaleType="centerCrop"
                         android:src="@drawable/q3img2"></ImageView>
                 </RelativeLayout>
@@ -205,23 +209,47 @@
 
                 <CheckBox
                     android:layout_width="wrap_content"
+                    android:id="@+id/q4AnswerA"
                     android:layout_height="wrap_content"
                     android:text="Special balance organs in eyes and ears" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
+                    android:id="@+id/q4AnswerB"
                     android:layout_height="wrap_content"
                     android:text="Very flexible backbone" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
+                    android:id="@+id/q4AnswerC"
                     android:layout_height="wrap_content"
                     android:text="Special gravity defying paws" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
+                    android:id="@+id/q4AnswerD"
                     android:layout_height="wrap_content"
                     android:text="No collarbone" />
+            </LinearLayout>
+
+            <!-- This is Question Five's layout.-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="5. Dogs bark, what do cats do?" />
+
+                <EditText
+                    android:id="@+id/q5Answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="It begins with an m :)" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -246,6 +274,7 @@
             android:layout_centerInParent="true"
             android:background="@color/primaryDarkColor"
             android:text="Submit"
+            android:id="@+id/submitButton"
             android:textColor="@color/secondaryTextColor" />
     </RelativeLayout>
 
